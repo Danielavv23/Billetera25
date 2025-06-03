@@ -14,4 +14,8 @@ export class AppController {
   getHelloDaniela(): string {
     return "Hola Daniela";
   }
+@Get("/jose")
+  getHello_jose(): string {
+    return "hola jose";
+  }
 }
