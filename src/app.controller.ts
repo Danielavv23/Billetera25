@@ -19,7 +19,7 @@ export class AppController {
     return "hola jose";
   }
   @Get("/HART")
-  getHello_jose(): string {
+  getHello_HART(): string {
     return "hola HART";
   }
 }
