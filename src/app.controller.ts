@@ -12,7 +12,7 @@ export class AppController {
   }
   @Get("/daniela")
   getHelloDaniela(): string {
-    return "Hola Daniela";
+    return "Hola Daniela y jose";
   }
 @Get("/jose")
   getHello_jose(): string {
