@@ -22,4 +22,10 @@ export class AppController {
   getHello_HART(): string {
     return "hola HART";
   }
+
+@Get("/Fernando")
+  getHello_Fernando(): string {
+    return "hola Fernando";
+  }
+
 }
