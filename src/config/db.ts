@@ -14,7 +14,7 @@ export class ConfigMySql implements TypeOrmOptionsFactory {
       username: 'arq1',
       password: '2wgzlVxFoU#zUbMg80qz',
       database: 'arq1',
-      entities: [ ClienteEntity , CuentaEntity ],
+      entities: [ CuentaEntity , ClienteEntity ],
       synchronize: false,
       extra: {
         connectionLimit: 10, // Configura el tamaño del pool de conexiones

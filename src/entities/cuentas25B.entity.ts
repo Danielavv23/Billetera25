@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
-@Entity('cuentas25B')
+@Entity('sales_cuentas258')
 export class CuentaEntity {
 
   @PrimaryColumn({ name: 'cue_tipo_cuenta' })
