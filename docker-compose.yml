@@ -1,0 +1,33 @@
+version: '3'
+services:
+  balance-service:
+    build: ./balance-service
+    environment:
+      DB_HOST: 192.168.9.225
+      DB_PORT: '3306'
+      DB_USER: arq1
+      DB_PASS: 2wgzlVxFoU#zUbMg80qz
+      DB_NAME: arq1
+    ports:
+      - "3001:3000"
+  withdraw-service:
+    build: ./withdraw-service
+    environment:
+      DB_HOST: 192.168.9.225
+      DB_PORT: '3306'
+      DB_USER: arq1
+      DB_PASS: 2wgzlVxFoU#zUbMg80qz
+      DB_NAME: arq1
+    ports:
+      - "3002:3000"
+  deposit-service:
+    build: ./deposit-service
+    environment:
+      DB_HOST: 192.168.9.225
+      DB_PORT: '3306'
+      DB_USER: arq1
+      DB_PASS: 2wgzlVxFoU#zUbMg80qz
+      DB_NAME: arq1
+    ports:
+      - "3003:3000"
+
