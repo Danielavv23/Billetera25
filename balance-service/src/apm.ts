@@ -1,6 +1,7 @@
 
 import 'dotenv/config'; 
-import apm from 'elastic-apm-node';
+const apm = require('elastic-apm-node');
+
 
 apm.start({
   serviceName: process.env.ELASTIC_APM_SERVICE_NAME || 'mi-servicio-nest',
