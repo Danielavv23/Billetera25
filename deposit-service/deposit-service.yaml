@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: preventa
+  name: deposit-service
+  labels:
+    app: deposit-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deposit-app
+  template:
+    metadata:
+      labels:
+        app: deposit-app
+    spec:
+      containers:
+      - image: danielavera/billetera25-deposit-service:v1
+        name: deposit-service
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DB_HOST
+          valueFrom: { secretKeyRef: { name: preventa-secret, key: DB_HOST } }
+        - name: DB_PORT
+          valueFrom: { secretKeyRef: { name: preventa-secret, key: DB_PORT } }
+        - name: DB_USER
+          valueFrom: { secretKeyRef: { name: preventa-secret, key: DB_USER } }
+        - name: DB_PASS
+          valueFrom: { secretKeyRef: { name: preventa-secret, key: DB_PASS } }
+        - name: DB_NAME
+          valueFrom: { secretKeyRef: { name: preventa-secret, key: DB_NAME } }
+      imagePullSecrets:
+      - name: dockerhub-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: preventa
+  name: deposit-service
+spec:
+  selector:
+    app: deposit-app
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 3000
+      nodePort: 30082
+

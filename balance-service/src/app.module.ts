@@ -3,7 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { BalanceModule } from './balance/balance.module';
 import { Cuenta } from './entities/cuenta.entity';
 import { Transaccion } from './entities/transaccion.entity';
-
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { ApmErrorInterceptor } from './apm.interceptor';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -19,6 +20,8 @@ import { Transaccion } from './entities/transaccion.entity';
       logging: ['error', 'warn', 'info', 'log'],
     }),
     BalanceModule,
-  ],
+  ], providers: [
+    { provide: APP_INTERCEPTOR, useClass: ApmErrorInterceptor },
+  ]
 })
 export class AppModule {}
