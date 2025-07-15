@@ -31,6 +31,16 @@ spec:
           valueFrom: { secretKeyRef: { name: preventa-secret, key: DB_PASS } }
         - name: DB_NAME
           valueFrom: { secretKeyRef: { name: preventa-secret, key: DB_NAME } }
+        - name: ELASTIC_APM_SERVICE_NAME
+          value: balance-service
+        - name: ELASTIC_APM_SERVER_URL
+          value: https://my-observability-project-b50c37.apm.us-east-1.aws.elastic.cloud:443
+        - name: ELASTIC_APM_SECRET_TOKEN
+          value: dWFweERKZ0JHdDgwaWpFWHFuVlA6TjhGSkFSZ3BhMWlwbG9seVVQOXVTdw==
+        - name: NODE_ENV
+          value: production
+        - name: ELASTIC_APM_ENVIRONMENT
+          value: preventa
       imagePullSecrets:
       - name: dockerhub-secret
 ---
