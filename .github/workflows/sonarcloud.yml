@@ -1,4 +1,4 @@
-# .github/workflows/sonarcloud.yml
+
 name: SonarCloud Monorepo Scan
 
 on:
